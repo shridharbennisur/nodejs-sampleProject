@@ -3,6 +3,8 @@ const hbs = require('hbs');
 const fs = require('fs');
 var app = express();
 
+var port = process.env.PORT || 3000;
+
 hbs.registerPartials(__dirname + '/views/partials');
 app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'hbs');
@@ -38,6 +40,6 @@ app.get('/about', (req, res)=> {
         'pageHeading': 'About Page',
     });
 });
-app.listen(3000, ()=> {
+app.listen(port, ()=> {
     console.log('server running on 3000 port');
 });
